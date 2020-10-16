@@ -2,16 +2,30 @@ import React, {Component} from 'react';
 
 import {Grid, Typography, TextField, Button} from '@material-ui/core';
 
-export default class Phonebook extends Component {
+import axios from 'axios';
 
+export default class Phonebook extends Component {
+  state = {
+    phoneBook : {}
+  }
+
+  componentDidMount() {
+    console.log('inside Component did mount')
+    axios.get(`localhost:54850/api/Phonebooks/1`)
+      .then(res => {
+        const phoneBook = res.data;
+        this.setState({ phoneBook });
+      })
+  }
+  
   render() {
     return (
-      <Grid container spacing="0">
+      <Grid container>
         
         <Grid item xm={0} lg={2}>
         </Grid>
   
-        <Grid container spacing="0" item xm={12} lg={8}>
+        <Grid container item xm={12} lg={8}>
           
           <Grid item xs={12}>
                 <br />
@@ -24,8 +38,8 @@ export default class Phonebook extends Component {
             <Grid item xs={12} sm={2}>
             </Grid>
             <Grid item xs={12} sm={8}>
-                <TextField id="standard-basic" label="Name" />&nbsp;&nbsp;
-                <TextField id="standard-basic" label="Phone Number" />
+                <TextField id="standard-basic1" label="Name" />&nbsp;&nbsp;
+                <TextField id="standard-basic2" label="Phone Number" />
                 <br />
                 <br />
                 <Button variant="contained" color="primary" onClick={() => { alert('clicked') }}>
@@ -39,9 +53,6 @@ export default class Phonebook extends Component {
             {/* Body End Row 1*/}
   
           </Grid>
-        
-        <Grid item xs={0} lg={2}>
-        </Grid>
   
       </Grid>
     )

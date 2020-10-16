@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Header/Header';
 import Phonebook from '../../containers/Phonebook/Phonebook';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   root: {

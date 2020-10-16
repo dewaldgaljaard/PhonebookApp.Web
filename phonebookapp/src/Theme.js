@@ -1,4 +1,3 @@
-import { green, purple, blue, lightBlue } from "@material-ui/core/colors";
 import { createMuiTheme } from '@material-ui/core';
 
 const theme = createMuiTheme({
