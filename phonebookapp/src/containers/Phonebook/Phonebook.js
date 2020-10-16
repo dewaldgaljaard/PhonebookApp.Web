@@ -11,7 +11,7 @@ export default class Phonebook extends Component {
 
   componentDidMount() {
     console.log('inside Component did mount')
-    axios.get(`localhost:54850/api/Phonebooks/1`)
+    axios.get(`http://localhost:54850/api/Phonebooks`)
       .then(res => {
         const phoneBook = res.data;
         this.setState({ phoneBook });
